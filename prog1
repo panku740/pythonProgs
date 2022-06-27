@@ -1,0 +1,42 @@
+
+
+def get_string(n):
+    if n=="1": return "abcd"
+    if n=="2": return "ef"
+    if n=="3": return "g"
+    if n=="4": return "hz"
+    if n=="5": return "i"
+ 
+ 
+ 
+def permute(num):
+    lst = list()  # ['g','ef','hz']
+    for i in num:
+
+        lst.append(get_string(i))
+
+    n = len(lst) #3
+ 
+    list1 = []
+    list2 = []
+    for s in lst[0]:
+        list2.append(s)
+    for i in range(1,n):
+        list1 = list2.copy()
+        
+        list2.clear()
+        #print(lst[i],list1,list2,len(list1))
+        for s in lst[i]:
+            j =0
+            while j<=len(list1)-1:
+                #print(list2,j)
+                st2= list1[j]+s
+                list2.append(st2)
+                #print(list2,st2,s) 
+                j+=1
+        #print(list2)        
+        list1.clear()        
+    print(list2)
+ 
+n = "3241"
+permute(n)
